@@ -32,3 +32,27 @@ jobs:
     # Run the test script
     - name: Run tests
       run: node test.js
+
+  lint:
+
+    # Set the environment where this job will run
+    runs-on: ubuntu-latest
+
+    steps:
+    # Check out the repo code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    # Run the lint script
+    - name: Run lint
+      run: npm run lint
+
+
